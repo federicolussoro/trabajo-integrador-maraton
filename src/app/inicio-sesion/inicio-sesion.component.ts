@@ -16,27 +16,27 @@ export class InicioSesionComponent {
   @Output() loggedIn = new EventEmitter();
 
   loginForm = this.fb.group({
-    usuario: [''],
+    contrasena: [''],
     mail: ['']
   });
 
   constructor(private fb: FormBuilder, public autenticacionService: AutenticacionService) {}
 
   onIniciar() {
-    const usuario = this.loginForm.value.usuario || '';
+    const contrasena = this.loginForm.value.contrasena || '';
     const mail = this.loginForm.value.mail || '';
-    this.autenticacionService.login(usuario, mail);
+    this.autenticacionService.iniciarSesion(mail, contrasena);
     this.loginForm.reset();
   }
 
   onRegistrar() {
-    const usuario = this.loginForm.value.usuario || '';
+    const contrasena = this.loginForm.value.contrasena || '';
     const mail = this.loginForm.value.mail || '';
-    this.autenticacionService.register(usuario, mail);
+    this.autenticacionService.registrar(mail, contrasena);
     this.loginForm.reset();
   }
 
   onCerrar() {
-    this.autenticacionService.logout();
+    this.autenticacionService.cerrarSesion();
   }
 }

@@ -1,53 +1,79 @@
 import { Injectable } from '@angular/core';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
 import { BehaviorSubject, Observable } from 'rxjs';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD_avDR347ybGyLveNvZGJdJBmgTCIw1LU",
+  authDomain: "trabajo-integrador-maraton.firebaseapp.com",
+  projectId: "trabajo-integrador-maraton",
+  storageBucket: "trabajo-integrador-maraton.appspot.com",
+  messagingSenderId: "221765118984",
+  appId: "1:221765118984:web:62639f0ff42abea07a35bd"
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
   private sesionIniciada = new BehaviorSubject<boolean>(false);
+  private auth;
+  constructor() {
+    initializeApp(firebaseConfig);
+    this.auth = getAuth();
+  }
 
-  constructor() {}
-
-  login(usuario: string, mail: string) {
+  iniciarSesion(mail: string, contrasena: string) {
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, usuario, mail)
+    signInWithEmailAndPassword(auth, mail, contrasena)
       .then((userCredential) => {
          //Signed in
         const user = userCredential.user;
-        console.log(`Login exitoso. Usuario: ${user.displayName}, Mail: ${user.email}`);
+        window.alert(`Registro exitoso. Mail: ${user.email}`);
         this.sesionIniciada.next(true);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(`Error: ${errorCode}, ${errorMessage}`);
+        window.alert(`Error: ${errorCode}, ${errorMessage}`);
       });
   }
 
-  register(usuario: string, mail: string) {
+  registrar(mail: string, contrasena: string) {
+    if (!this.emailEsValido(mail)) {
+      window.alert('El correo electrónico proporcionado no es válido.');
+      return;
+    }
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, usuario, mail)
+    createUserWithEmailAndPassword(auth, mail, contrasena)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
-        console.log(`Registro exitoso. Usuario: ${user.displayName}, Mail: ${user.email}`);
+        window.alert(`Registro exitoso. Mail: ${user.email}`);
         this.sesionIniciada.next(true);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(`Error: ${errorCode}, ${errorMessage}`);
+        window.alert(`Error: ${errorCode}, ${errorMessage}`);
       });
   }
 
-  logout() {
-    this.sesionIniciada.next(false);
-    window.alert('Sesion cerrada');
+  cerrarSesion() {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      this.sesionIniciada.next(false);
+      window.alert('Sesión cerrada exitosamente');
+    }).catch((error) => {
+      window.alert('Error al cerrar la sesión.');
+    });
   }
 
   estaLogueado(): Observable<boolean> {
     return this.sesionIniciada.asObservable();
+  }
+
+  emailEsValido(email: string): boolean {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 }

@@ -1,18 +1,14 @@
-<div *ngIf="!autenticacionService.estaLogueado(); else logoutBoton">
+<div class="container">
   <form [formGroup]="loginForm" (ngSubmit)="onIniciar()">
     <div class="form-group">
-      <label for="usuario">Usuario</label>
-      <input type="usuario" class="form-control" formControlName="usuario" id="usuario" placeholder="Usuario">
+      <label for="mail">Correo electrónico</label>
+      <input type="email" id="mail" class="form-control" formControlName="mail" required>
     </div>
     <div class="form-group">
-      <label for="mail">Mail</label>
-      <input type="mail" class="form-control" formControlName="mail" id="mail" placeholder="Mail">
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" class="form-control" formControlName="contrasena" required>
     </div>
-    <button type="submit" class="button">Iniciar Sesion</button>
-    <button type="button" class="button" (click)="onRegistrar()">Registrar</button>
+    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    <button type="button" class="btn btn-secondary" (click)="onRegistrar()">Registrarse</button>
   </form>
 </div>
-
-<ng-template #logoutBoton>
-  <button (click)="onCerrar()">Cerrar Sesion</button>
-</ng-template>
