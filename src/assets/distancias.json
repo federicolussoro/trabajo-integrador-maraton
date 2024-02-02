@@ -1,0 +1,17 @@
+[
+  {
+    "id": 5,
+    "distancia": "5km",
+    "precio": 7000
+  },
+  {
+    "id": 10,
+    "distancia": "10km",
+    "precio": 10000
+  },
+  {
+    "id": 21,
+    "distancia": "21km",
+    "precio": 12000
+  }
+]

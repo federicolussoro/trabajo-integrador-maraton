@@ -1,0 +1,14 @@
+:host{
+  background-color: #992727;
+}
+.carrito-container{
+  margin-left: auto;
+}
+.inicioSesion-container{
+  margin-left: auto;
+  margin-right: 10px;
+}
+.botones-container{
+  display: flex;
+  margin-left: auto;
+}
