@@ -9,7 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, HttpClientModule],
   templateUrl: './inicio-sesion.component.html',
-  styleUrl: './inicio-sesion.component.css'
+  styleUrl: './inicio-sesion.component.css',
+  providers: [AutenticacionService],
 })
 export class InicioSesionComponent {
   @Output() loggedIn = new EventEmitter();
