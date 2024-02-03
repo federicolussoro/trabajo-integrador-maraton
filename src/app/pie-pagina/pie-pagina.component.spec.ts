@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PiePaginaComponent } from './pie-pagina.component';
+import {PiePaginaComponent} from './pie-pagina.component';
 
 describe('PiePaginaComponent', () => {
   let component: PiePaginaComponent;
@@ -10,8 +10,8 @@ describe('PiePaginaComponent', () => {
     await TestBed.configureTestingModule({
       imports: [PiePaginaComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(PiePaginaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

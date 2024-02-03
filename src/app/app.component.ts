@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { EncabezadoComponent } from './encabezado/encabezado.component';
-import { PiePaginaComponent } from './pie-pagina/pie-pagina.component';
-import { RouterModule} from "@angular/router";
-import { Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
+import {EncabezadoComponent} from './encabezado/encabezado.component';
+import {PiePaginaComponent} from './pie-pagina/pie-pagina.component';
+import {RouterModule} from "@angular/router";
+import {Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({

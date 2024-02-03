@@ -1,14 +1,17 @@
-:host{
+:host {
   background-color: #992727;
 }
-.carrito-container{
+
+.carrito-container {
   margin-left: auto;
 }
-.inicioSesion-container{
+
+.inicioSesion-container {
   margin-left: auto;
   margin-right: 10px;
 }
-.botones-container{
+
+.botones-container {
   display: flex;
   margin-left: auto;
 }

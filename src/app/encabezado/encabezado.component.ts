@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { AutenticacionService } from '../autenticacion.service';
+import {Component} from '@angular/core';
+import {AutenticacionService} from '../autenticacion.service';
 import {CommonModule} from "@angular/common";
 import {RouterModule, RouterLink} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
@@ -13,7 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [AutenticacionService],
 })
 export class EncabezadoComponent {
-  constructor(public auth: AutenticacionService) {}
+  constructor(public auth: AutenticacionService) {
+  }
 
   cerrarSesion() {
     this.auth.cerrarSesion();

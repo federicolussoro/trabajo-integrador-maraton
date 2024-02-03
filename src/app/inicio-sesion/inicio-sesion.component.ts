@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
-import { AutenticacionService } from '../autenticacion.service';
+import {AutenticacionService} from '../autenticacion.service';
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
@@ -20,7 +20,8 @@ export class InicioSesionComponent {
     mail: ['']
   });
 
-  constructor(private fb: FormBuilder, public autenticacionService: AutenticacionService) {}
+  constructor(private fb: FormBuilder, public autenticacionService: AutenticacionService) {
+  }
 
   onIniciar() {
     const contrasena = this.loginForm.value.contrasena || '';

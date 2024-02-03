@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { InicioSesionComponent } from './inicio-sesion.component';
+import {InicioSesionComponent} from './inicio-sesion.component';
 
 describe('InicioSesionComponent', () => {
   let component: InicioSesionComponent;
@@ -10,8 +10,8 @@ describe('InicioSesionComponent', () => {
     await TestBed.configureTestingModule({
       imports: [InicioSesionComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(InicioSesionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

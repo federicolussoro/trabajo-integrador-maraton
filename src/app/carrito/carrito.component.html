@@ -1,14 +1,15 @@
 <h1>Tu Carrito</h1>
 <div *ngIf="items.length > 0; else carritoVacio">
   <div class="carrito-item" *ngFor="let item of items">
-    <h3>{{item.distancia.distancia}}</h3>
-    <p>Monto: {{item.distancia.precio * item.contador | currency}}</p>
-    <p>Cantidad: {{item.contador}}</p>
+    <h3>{{ item.distancia.distancia }}</h3>
+    <p>Monto: {{ item.distancia.precio * item.contador | currency }}</p>
+    <p>Cantidad: {{ item.contador }}</p>
     <button (click)="onEliminar(item.distancia)">Eliminar</button>
   </div>
 
-  <h2>Total de inscripciones en el carrito: {{carritoService.getTotalItem()}}</h2>
-  <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion" [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
+  <h2>Total de inscripciones en el carrito: {{ carritoService.getTotalItem() }}</h2>
+  <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion"
+            [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
   <ng-template #templateNoInicioSesion>
     <h3>Debes iniciar sesión para realizar el pago.</h3>
   </ng-template>

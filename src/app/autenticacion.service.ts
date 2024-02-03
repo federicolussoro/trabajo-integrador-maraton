@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
+import {Injectable} from '@angular/core';
+import {initializeApp} from "firebase/app";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from '@firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_avDR347ybGyLveNvZGJdJBmgTCIw1LU",
@@ -16,6 +16,7 @@ const firebaseConfig = {
 })
 export class AutenticacionService {
   private auth;
+
   constructor() {
     initializeApp(firebaseConfig);
     this.auth = getAuth();
@@ -25,7 +26,7 @@ export class AutenticacionService {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, mail, contrasena)
       .then((userCredential) => {
-         //Signed in
+        //Signed in
         const user = userCredential.user;
         window.alert(`Inicio exitoso. Mail: ${user.email}`);
       })
@@ -67,6 +68,7 @@ export class AutenticacionService {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
+
   estaLogueado(): boolean {
     const user = this.auth.currentUser;
     return !!user;

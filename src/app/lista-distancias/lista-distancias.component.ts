@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CarritoService } from '../carrito.service';
-import { Distancia } from '../distancia';
+import {Component, OnInit} from '@angular/core';
+import {CarritoService} from '../carrito.service';
+import {Distancia} from '../distancia';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 
@@ -15,7 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 export class ListaDistanciasComponent implements OnInit {
   distancias: Distancia[] = [];
 
-constructor(private carritoService: CarritoService) {}
+  constructor(private carritoService: CarritoService) {
+  }
 
   agregarAlCarrito(distancia: Distancia) {
     this.carritoService.setDistancia(distancia);
