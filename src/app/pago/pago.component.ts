@@ -19,6 +19,6 @@ export class PagoComponent {
   datosTarjeta!: string;
 
   onPagar() {
-    this.pagoRealizado.emit(); // Emite un evento cuando el pago se realiza
+    this.pagoRealizado.emit();
   }
 }
