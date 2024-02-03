@@ -9,8 +9,13 @@ import {HttpClientModule} from "@angular/common/http";
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './encabezado.component.html',
-  styleUrl: './encabezado.component.css'
+  styleUrl: './encabezado.component.css',
+  providers: [AutenticacionService],
 })
 export class EncabezadoComponent {
   constructor(public auth: AutenticacionService) {}
+
+  cerrarSesion() {
+    this.auth.cerrarSesion();
+  }
 }

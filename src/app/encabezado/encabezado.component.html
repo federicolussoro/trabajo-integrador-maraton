@@ -4,12 +4,12 @@
 
 <div class="botones-container">
   <div class="inicioSesion-container">
-    <a *ngIf="auth.estaLogueado() | async; else sesionCerrada" class="button fancy-button">
-      <div>
-        <em class="material-icons">person</em>
-        <span> Cerrar sesión</span>
-      </div>
-    </a>
+<a *ngIf="auth.estaLogueado() ; else sesionCerrada" class="button fancy-button" (click)="cerrarSesion()">
+  <div>
+    <em class="material-icons">person</em>
+    <span> Cerrar sesión</span>
+  </div>
+</a>
 
     <ng-template #sesionCerrada>
       <a routerLink="/inicio-sesion" class="button fancy-button">

@@ -1,5 +1,5 @@
 <h1>Tu Carrito</h1>
-<div *ngIf="items.length > 0; else emptyCart">
+<div *ngIf="items.length > 0; else carritoVacio">
   <div class="carrito-item" *ngFor="let item of items">
     <h3>{{item.distancia.distancia}}</h3>
     <p>Monto: {{item.distancia.precio * item.contador | currency}}</p>
@@ -8,17 +8,12 @@
   </div>
 
   <h2>Total de inscripciones en el carrito: {{carritoService.getTotalItem()}}</h2>
-
-  <ng-container *ngIf="autenticacionService.estaLogueado(); else login">
-    <app-pago [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
-  </ng-container>
-  <ng-template #login>
-    <p>Para continuar con el pago debes estar logueado</p>
-    <button routerLink="/inicio-sesion">Ir a Login</button>
+  <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion" [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
+  <ng-template #templateNoInicioSesion>
+    <h3>Debes iniciar sesión para realizar el pago.</h3>
   </ng-template>
-
 </div>
 
-<ng-template #emptyCart>
+<ng-template #carritoVacio>
   <h2>Todavía no agregaste una carrera</h2>
 </ng-template>

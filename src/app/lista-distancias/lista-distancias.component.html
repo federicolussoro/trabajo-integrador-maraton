@@ -1,8 +1,10 @@
 <h2>Distancias</h2>
 
 <div *ngFor="let distancia of distancias">
+  <<!-- Interpolación de string que se utiliza para mostrar la distancia y el precio de cada elemento en la lista de distancias -->
   <h3>{{distancia.distancia}}</h3>
   <p>Precio: {{distancia.precio | currency}}</p>
 
+  <!-- Event binding que se utiliza para llamar al método agregarAlCarrito cuando se hace clic en el botón -->
   <button (click)="agregarAlCarrito(distancia)">Comprar</button>
 </div>

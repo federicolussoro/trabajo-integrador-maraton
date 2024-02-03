@@ -13,7 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
   imports: [CommonModule, PagoComponent, RouterLink, HttpClientModule],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css',
-  providers: [CarritoService],
+  providers: [CarritoService, PagoComponent, AutenticacionService],
 })
 export class CarritoComponent {
   items = this.carritoService.getItems();

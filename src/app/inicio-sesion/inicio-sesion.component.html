@@ -1,5 +1,6 @@
 <div class="container">
-  <form [formGroup]="loginForm" (ngSubmit)="onIniciar()">
+  <<!-- Binding de propiedades que se utiliza para unir el formulario a su grupo de control correspondiente. -->
+  <form [formGroup]="loginForm">
     <div class="form-group">
       <label for="mail">Correo electrónico</label>
       <input type="email" id="mail" class="form-control" formControlName="mail" required>
@@ -8,7 +9,7 @@
       <label for="contrasena">Contraseña</label>
       <input type="password" id="contrasena" class="form-control" formControlName="contrasena" required>
     </div>
-    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+    <button type="submit" class="btn btn-primary" (click) = "onIniciar()">Iniciar sesión</button>
     <button type="button" class="btn btn-secondary" (click)="onRegistrar()">Registrarse</button>
   </form>
 </div>

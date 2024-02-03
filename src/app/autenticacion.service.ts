@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@firebase/auth';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_avDR347ybGyLveNvZGJdJBmgTCIw1LU",
@@ -16,7 +15,6 @@ const firebaseConfig = {
   providedIn: 'root'
 })
 export class AutenticacionService {
-  private sesionIniciada = new BehaviorSubject<boolean>(false);
   private auth;
   constructor() {
     initializeApp(firebaseConfig);
@@ -29,8 +27,7 @@ export class AutenticacionService {
       .then((userCredential) => {
          //Signed in
         const user = userCredential.user;
-        window.alert(`Registro exitoso. Mail: ${user.email}`);
-        this.sesionIniciada.next(true);
+        window.alert(`Inicio exitoso. Mail: ${user.email}`);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -49,7 +46,6 @@ export class AutenticacionService {
       .then((userCredential) => {
         const user = userCredential.user;
         window.alert(`Registro exitoso. Mail: ${user.email}`);
-        this.sesionIniciada.next(true);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -61,19 +57,20 @@ export class AutenticacionService {
   cerrarSesion() {
     const auth = getAuth();
     signOut(auth).then(() => {
-      this.sesionIniciada.next(false);
       window.alert('Sesión cerrada exitosamente');
     }).catch((error) => {
       window.alert('Error al cerrar la sesión.');
     });
   }
 
-  estaLogueado(): Observable<boolean> {
-    return this.sesionIniciada.asObservable();
-  }
-
   emailEsValido(email: string): boolean {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
+  estaLogueado(): boolean {
+    const user = this.auth.currentUser;
+    return !!user;
+  }
 }
+
+

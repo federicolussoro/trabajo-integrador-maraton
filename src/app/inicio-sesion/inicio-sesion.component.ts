@@ -35,8 +35,4 @@ export class InicioSesionComponent {
     this.autenticacionService.registrar(mail, contrasena);
     this.loginForm.reset();
   }
-
-  onCerrar() {
-    this.autenticacionService.cerrarSesion();
-  }
 }
