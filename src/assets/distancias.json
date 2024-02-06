@@ -1,17 +1,29 @@
 [
   {
     "id": 5,
-    "distancia": "5km",
-    "precio": 7000
+    "titulo": "5km",
+    "precio": 5000,
+    "imagenDistancia": "assets/imagenes/5k.png",
+    "imagenTarjeta": "assets/imagenes/5kTarjeta.png"
   },
   {
     "id": 10,
-    "distancia": "10km",
-    "precio": 10000
+    "titulo": "10km",
+    "precio": 7000,
+    "imagenDistancia": "assets/imagenes/10k.png",
+    "imagenTarjeta": "assets/imagenes/10kTarjeta.png"
   },
   {
     "id": 21,
-    "distancia": "21km",
-    "precio": 12000
+    "titulo": "21km",
+    "imagenDistancia": "assets/imagenes/21k.png",
+    "imagenTarjeta": "assets/imagenes/21kTarjeta.png"
+  },
+  {
+    "id": 42,
+    "titulo": "42km",
+    "precio": 12000,
+    "imagenDistancia": "assets/imagenes/42k.png",
+    "imagenTarjeta": "assets/imagenes/42kTarjeta.png"
   }
 ]

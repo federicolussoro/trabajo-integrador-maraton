@@ -1,5 +1,8 @@
 export interface Distancia {
   id: number;
-  distancia: string;
+  imagenDistancia: string;
+  imagenTarjeta: string;
   precio: number;
+  titulo: string;
+
 }

@@ -1,3 +1,11 @@
 <h2>Total a pagar: {{ montoTotal | currency }}</h2>
-<input type="text" placeholder="Ingresá los datos de la tarjeta" [(ngModel)]="datosTarjeta">
-<button (click)="onPagar()">Pagar</button>
+<div class="pago-container">
+  <p>Ingresá los datos de la tarjeta</p>
+  <div class="input-button-container">
+    <input type="text" placeholder="xxxx - xxxx- xxxx- xxxx" [(ngModel)]="datosTarjeta">
+    <button class="button fancy-button" (click)="onPagar()">
+      <em class="material-icons">payment</em>
+      Pagar
+    </button>
+  </div>
+</div>

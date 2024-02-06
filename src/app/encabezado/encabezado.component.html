@@ -1,7 +1,6 @@
 <a [routerLink]="['/']">
-  <h1>Maratón</h1>
+  <img class="logo" src="assets/imagenes/logo.png">
 </a>
-
 <div class="botones-container">
   <div class="inicioSesion-container">
     <a *ngIf="auth.estaLogueado() ; else sesionCerrada" class="button fancy-button" (click)="cerrarSesion()">

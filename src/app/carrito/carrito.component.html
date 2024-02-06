@@ -1,13 +1,15 @@
-<h1>Tu Carrito</h1>
+<h2>Tu Carrito</h2>
 <div *ngIf="items.length > 0; else carritoVacio">
-  <div class="carrito-item" *ngFor="let item of items">
-    <h3>{{ item.distancia.distancia }}</h3>
-    <p>Monto: {{ item.distancia.precio * item.contador | currency }}</p>
-    <p>Cantidad: {{ item.contador }}</p>
-    <button (click)="onEliminar(item.distancia)">Eliminar</button>
+  <div class="carrito-item" *ngFor="let item of items" (click)="onEliminar(item.distancia)">
+    <img [src]="item.distancia.imagenDistancia" alt="{{ item.distancia.titulo }}">
+    <div>
+      <p>{{ item.distancia.titulo }}</p>
+      <p>Monto: {{ item.distancia.precio * item.contador | currency }}</p>
+      <p>Cantidad: {{ item.contador }}</p>
+    </div>
   </div>
 
-  <h2>Total de inscripciones en el carrito: {{ carritoService.getTotalItem() }}</h2>
+  <h3>Total de inscripciones en el carrito: {{ carritoService.getTotalItem() }}</h3>
   <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion"
             [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
   <ng-template #templateNoInicioSesion>
@@ -16,5 +18,5 @@
 </div>
 
 <ng-template #carritoVacio>
-  <h2>Todavía no agregaste una carrera</h2>
+  <h3>Todavía no agregaste una carrera</h3>
 </ng-template>

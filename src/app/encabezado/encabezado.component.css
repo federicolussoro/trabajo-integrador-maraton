@@ -1,5 +1,7 @@
-:host {
-  background-color: #992727;
+.logo {
+  height: 75px;
+  width: auto;
+  margin-right: 10px;
 }
 
 .carrito-container {
@@ -15,3 +17,4 @@
   display: flex;
   margin-left: auto;
 }
+

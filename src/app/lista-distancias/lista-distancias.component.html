@@ -1,10 +1,21 @@
-<h2>Distancias</h2>
+<div class = "inicio">
+  <img src="assets/imagenes/inicio.png" alt="Distancias">
+</div>
 
-<div *ngFor="let distancia of distancias">
-  <!-- Interpolación de string que se utiliza para mostrar la distancia y el precio de cada elemento en la lista de distancias -->
-  <h3>{{ distancia.distancia }}</h3>
-  <p>Precio: {{ distancia.precio | currency }}</p>
+<div class = "info">
+  <h4>Seleccioná una distancia</h4>
+</div>
 
-  <!-- Event binding que se utiliza para llamar al método agregarAlCarrito cuando se hace clic en el botón -->
-  <button (click)="agregarAlCarrito(distancia)">Comprar</button>
+<div class="lista-distancias">
+  <div class="tarjeta-distancia" *ngFor="let distancia of distancias">
+    <!-- Event binding que se utiliza para llamar al método agregarAlCarrito cuando se hace clic en el botón -->
+    <img [src]="distancia.imagenTarjeta" alt="Imagen de la distancia" (click)="agregarAlCarrito(distancia)">
+    <!-- Interpolación de string que se utiliza para mostrar la
+    distancia y el precio de cada elemento en
+    la lista de distancias -->
+
+  </div>
+</div>
+<div class = "info">
+  <p>Todos los circuitos de Maratón 2024 están medidos, certificados y homologados por profesionales miembros de AIMS (Association of International Marathons and Distance Races) y avalados por WORLD ATHLETICS (International Association of Athletics Federations).</p>
 </div>
