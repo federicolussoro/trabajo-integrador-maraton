@@ -1,4 +1,4 @@
-<h2>Tu Carrito</h2>
+<h2 class="cabecera">Tu Carrito</h2>
 <div *ngIf="items.length > 0; else carritoVacio">
   <div class="carrito-item" *ngFor="let item of items" (click)="onEliminar(item.distancia)">
     <img [src]="item.distancia.imagenDistancia" alt="{{ item.distancia.titulo }}">
@@ -13,7 +13,7 @@
   <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion"
             [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
   <ng-template #templateNoInicioSesion>
-    <h3>Debes iniciar sesión para realizar el pago.</h3>
+    <p>Iniciá sesión para realizar el pago</p>
   </ng-template>
 </div>
 

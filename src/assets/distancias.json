@@ -16,6 +16,7 @@
   {
     "id": 21,
     "titulo": "21km",
+    "precio": 10000,
     "imagenDistancia": "assets/imagenes/21k.png",
     "imagenTarjeta": "assets/imagenes/21kTarjeta.png"
   },

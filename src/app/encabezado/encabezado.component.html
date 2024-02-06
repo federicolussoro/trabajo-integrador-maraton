@@ -23,7 +23,10 @@
   <div class="carrito-container">
     <!-- Botón de carrito de compras -->
     <a [routerLink]="['/carrito']" class="button fancy-button">
-      <em class="material-icons">shopping_cart</em>
+      <div class="carrito-logo">
+        <em class="material-icons">shopping_cart</em>
+        <span class="carrito-contador">{{ carrito.getTotalItem() }}</span>
+      </div>
     </a>
   </div>
 </div>

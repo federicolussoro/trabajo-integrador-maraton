@@ -1,3 +1,10 @@
+.cabecera {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8em;
+  color: #4a4a4a;
+  text-align: center;
+  letter-spacing: 1px;
+}
 .carrito-item img {
   max-width: 100px;
   height: auto;
@@ -17,6 +24,7 @@ body {
   padding: 1em;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .carrito-item img {
