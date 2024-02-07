@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({

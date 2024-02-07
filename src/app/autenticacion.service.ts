@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {initializeApp} from "firebase/app";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from '@firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from '@firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyD_avDR347ybGyLveNvZGJdJBmgTCIw1LU",
@@ -26,7 +26,6 @@ export class AutenticacionService {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, mail, contrasena)
       .then((userCredential) => {
-        //Signed in
         const user = userCredential.user;
         window.alert(`Inicio exitoso. Mail: ${user.email}`);
       })
@@ -58,9 +57,9 @@ export class AutenticacionService {
   cerrarSesion() {
     const auth = getAuth();
     signOut(auth).then(() => {
-      window.alert('Sesión cerrada exitosamente');
+      window.alert('Sesión cerrada.');
     }).catch((error) => {
-      window.alert('Error al cerrar la sesión.');
+      window.alert('Error al cerrar sesión.');
     });
   }
 

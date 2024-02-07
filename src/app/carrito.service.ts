@@ -10,11 +10,6 @@ export class CarritoService {
   }
 
   setDistancia(distancia: Distancia) {
-    if (!distancia || !distancia.id) {
-      console.error('Distancia inválida:', distancia);
-      return;
-    }
-
     let items = this.getItems();
     const item = items.find((item: { distancia: Distancia, contador: number }) => item.distancia.id === distancia.id);
     if (item) {

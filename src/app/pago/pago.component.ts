@@ -1,7 +1,6 @@
-import {Component, EventEmitter, Output, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {Routes} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
@@ -14,7 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
   styleUrl: './pago.component.css'
 })
 export class PagoComponent {
-  @Input() montoTotal!: number; // Recibe el monto total del carrito
+  @Input() montoTotal!: number;
   @Output() pagoRealizado = new EventEmitter();
   datosTarjeta!: string;
 

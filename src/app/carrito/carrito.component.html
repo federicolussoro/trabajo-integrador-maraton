@@ -1,8 +1,9 @@
 <h2 class="cabecera">Tu Carrito</h2>
 <div *ngIf="items.length > 0; else carritoVacio">
   <div class="carrito-item" *ngFor="let item of items" (click)="onEliminar(item.distancia)">
-    <img [src]="item.distancia.imagenDistancia" alt="{{ item.distancia.titulo }}">
+      <img [src]="item.distancia.imagenDistancia" alt="{{ item.distancia.titulo }}">
     <div>
+      <!-- Interpolación de string que se utiliza para mostrar la distancia y el precio de cada elemento -->
       <p>{{ item.distancia.titulo }}</p>
       <p>Monto: {{ item.distancia.precio * item.contador | currency }}</p>
       <p>Cantidad: {{ item.contador }}</p>
@@ -10,8 +11,11 @@
   </div>
 
   <h3>Total de inscripciones en el carrito: {{ carritoService.getTotalItem() }}</h3>
-  <app-pago *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion"
-            [montoTotal]="carritoService.getTotalPrecio()" (pagoRealizado)="onPagoRealizado()"></app-pago>
+
+  <!-- [montoTotal]="carritoService.getTotalPrecio()" es un binding de propiedades. Este código significa que el valor de montoTotal del componente app-pago se establece en el valor devuelto por el método getTotalPrecio del servicio carritoService. -->
+  <app-pago (pagoRealizado)="onPagoRealizado()"
+            *ngIf="autenticacionService.estaLogueado(); else templateNoInicioSesion"
+            [montoTotal]="carritoService.getTotalPrecio()"></app-pago>
   <ng-template #templateNoInicioSesion>
     <p>Iniciá sesión para realizar el pago</p>
   </ng-template>

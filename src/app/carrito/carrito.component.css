@@ -1,17 +1,16 @@
 .cabecera {
-  font-family: 'Roboto', sans-serif;
   font-size: 1.8em;
   color: #4a4a4a;
   text-align: center;
   letter-spacing: 1px;
 }
+
 .carrito-item img {
   max-width: 100px;
   height: auto;
 }
 
 body {
-  font-family: Arial, sans-serif;
   color: #333;
 }
 

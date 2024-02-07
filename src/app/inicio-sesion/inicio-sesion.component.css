@@ -27,7 +27,7 @@
   padding: 0.5em 1em;
   border-radius: 4px;
   cursor: pointer;
-  margin: 1em; /* Añadido para dar más espacio entre los botones */
+  margin: 1em;
 }
 
 .iniciar-sesion-container button:hover {

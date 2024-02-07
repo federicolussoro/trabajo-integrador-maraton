@@ -1,21 +1,21 @@
-<div class = "inicio">
+<div class="inicio">
   <img src="assets/imagenes/inicio.png" alt="Distancias">
 </div>
 
-<div class = "info">
+<div class="info">
   <h4>Seleccioná una distancia</h4>
 </div>
 
 <div class="lista-distancias">
   <div class="tarjeta-distancia" *ngFor="let distancia of distancias">
-    <!-- Event binding que se utiliza para llamar al método agregarAlCarrito cuando se hace clic en el botón -->
+    <!-- Binding de propiedades ([src]="distancia.imagenTarjeta") que significa que el valor del atributo src de la imagen se establece en el valor de imagenTarjeta del objeto distancia.
+     Binding de eventos ((click)="agregarAlCarrito(distancia)) que se utiliza cuando se hace clic en la imagen, para luego llamar al método agregarAlCarrito con el objeto distancia como argumento.-->
     <img [src]="distancia.imagenTarjeta" alt="Imagen de la distancia" (click)="agregarAlCarrito(distancia)">
-    <!-- Interpolación de string que se utiliza para mostrar la
-    distancia y el precio de cada elemento en
-    la lista de distancias -->
 
   </div>
 </div>
-<div class = "info">
-  <p>Todos los circuitos de Maratón 2024 están medidos, certificados y homologados por profesionales miembros de AIMS (Association of International Marathons and Distance Races) y avalados por WORLD ATHLETICS (International Association of Athletics Federations).</p>
+<div class="info">
+  <p>Todos los circuitos de Maratón 2024 están medidos, certificados y homologados por profesionales miembros de AIMS
+    (Association of International Marathons and Distance Races) y avalados por WORLD ATHLETICS (International
+    Association of Athletics Federations).</p>
 </div>

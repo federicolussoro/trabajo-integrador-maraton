@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CarritoService} from '../carrito.service';
 import {Distancia} from '../distancia';
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-lista-distancias',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, NgOptimizedImage, NgOptimizedImage],
   templateUrl: './lista-distancias.component.html',
   styleUrl: './lista-distancias.component.css',
   providers: [CarritoService],
@@ -20,7 +20,7 @@ export class ListaDistanciasComponent implements OnInit {
 
   agregarAlCarrito(distancia: Distancia) {
     this.carritoService.setDistancia(distancia);
-    window.alert('Tu distancia ha sido agregada al carrito!');
+    window.alert('Tu distancia se agregó al carrito!');
   }
 
   ngOnInit(): void {

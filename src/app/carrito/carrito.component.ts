@@ -1,5 +1,5 @@
-import {Component, Output} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import {RouterLink} from "@angular/router";
 import {AutenticacionService} from "../autenticacion.service";
 import {CarritoService} from '../carrito.service';
@@ -10,7 +10,7 @@ import {HttpClientModule} from "@angular/common/http";
 @Component({
   selector: 'app-carrito',
   standalone: true,
-  imports: [CommonModule, PagoComponent, RouterLink, HttpClientModule],
+  imports: [CommonModule, PagoComponent, RouterLink, HttpClientModule, NgOptimizedImage],
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css',
   providers: [CarritoService, PagoComponent, AutenticacionService],
@@ -33,6 +33,6 @@ export class CarritoComponent {
   onPagoRealizado() {
     this.carritoService.limpiarCarrito();
     this.items = this.carritoService.getItems();
-    window.alert('El pago se ha realizado.');
+    window.alert('Pago realizado con éxito!');
   }
 }
