@@ -1,7 +1,7 @@
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #333;
-  --primary-color: #ced4da;
+  --primary-color: #ffffff;
   --secondary-color: #abcdef;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -10,7 +10,7 @@
 
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: var(--primary-color);
 }
 
 .container {
@@ -73,7 +73,7 @@ label {
   border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
-  background-color: #1976d2;
+  background-color: var(--primary-color);
   color: white;
   border: none;
 }
@@ -89,8 +89,9 @@ label {
 }
 
 .fancy-button {
-  background-color: #ececec;
+  background-color: var(--primary-color);
   color: #1976d2;
+  margin-right: 10px;
 }
 
 app-encabezado {
@@ -98,7 +99,7 @@ app-encabezado {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ececec;
+  background-color: var(--primary-color);
   color: black;
   text-align: left;
   align-items: center;
@@ -130,7 +131,7 @@ app-pie-pagina {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ececec;
+  background-color: var(--primary-color);
   color: black;
   text-align: left;
   align-items: center;

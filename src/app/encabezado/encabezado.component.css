@@ -2,6 +2,7 @@
   height: 75px;
   width: auto;
   margin-right: 10px;
+  margin-left: 20px;
 }
 
 .carrito-container {
@@ -26,7 +27,7 @@
 .carrito-contador {
   font-size: 0.7em;
   color: #ffffff;
-  background-color: #F9CF93;
+  background-color: #ee3b78;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
